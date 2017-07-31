@@ -1,0 +1,10 @@
+<title>{% block title %}Courses{% endblock %}</title>
+
+{% block content %}
+{% include 'videos/snippets/video_search_form.html' with request=request %}
+
+<h1>{{ object.title }}</h1>
+
+<p>{{ object.embed_code|safe }}</p>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'defaults/base.html' %}
+{% load render_video %}
+
+<title>{% block title %}Categories{% endblock %}</title>
+
+{% block content %}
+<div class='row'>
+
+    <div class='col-sm-6 col-sm-offset-3'>
+
+        <h1>{{ object.title }}</h1>
+        <div class="col-sm-6 col-sm-offset-6">
+            {% render_video object.video %}
+        </div>
+
+        {{ object.primary_category.all }}
+        {{ object.secondary_category.all }}
+
+    </div>
+</div>
+{% endblock %}
+
+

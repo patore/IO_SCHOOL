@@ -18,7 +18,9 @@ from django.contrib import admin
 from .views import Home
 
 urlpatterns = [
-    url(r'^$', Home),
+    url(r'^$', Home, name='home'),
     url(r'^admin/', admin.site.urls),
-    url(r'videos/', include('videos.urls'))
+    url(r'videos/', include('videos.urls')),
+    url(r'courses/', include('courses.urls')),
+    url(r'categories/', include('categories.urls'))
 ]

@@ -1,0 +1,42 @@
+{% extends 'defaults/base.html' %}
+<title>{% block title %}Categories{% endblock %}</title>
+
+{% block content %}
+<div class="row">
+    <h1>Categories List</h1>
+    <hr>
+    <div class='col-sm-8 col-sm-offset-1'>
+        <div class="list-group">
+            <div class="row">
+
+                {% for i in object_list %}
+                <div class='col-sm-4'>
+                    <a href="{{ i.get_absolute_url }}" class="list-group-item">
+                        {{ i.title }}
+
+                       <!-- {% if i.courses_length > 0 %}
+                        <span class="badge">{{ i.courses_length }} Course{% if courses_length > 1 %}s{% endif %}
+                        </span>
+                        {% endif %}-->
+
+                        {% if i.primary_category.all.exists %}
+                        <span class="badge" style="background: orange;">{{ i.primary_category.all.count }} Course{% if i.primary_category.all.count > 1 %}s{% endif %}
+                        </span>
+                        {% endif %}
+
+                        {% if i.secondary_category.all.exists %}
+                        <span class="badge" style="background: indigo;">{{ i.secondary_category.all.count }} Course{% if i.secondary_category.all.count > 1 %}s{% endif %}
+                        </span>
+                        {% endif %}
+
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

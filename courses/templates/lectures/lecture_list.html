@@ -1,0 +1,18 @@
+{% extends 'defaults/base.html' %}
+<title>{% block title %}Courses{% endblock %}</title>
+
+{% block content %}
+    <h1>Lecture List</h1>
+    <div class='row'>
+        <div class='col-sm-6 col-sm-offset-3'>
+            <ul>
+            {% for i in object_list %}
+
+            <li><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></li>
+
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+

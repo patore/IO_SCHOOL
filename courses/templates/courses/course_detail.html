@@ -1,0 +1,32 @@
+{% extends 'defaults/base.html' %}
+
+<title>{% block title %}Courses{% endblock %}</title>
+
+{% block content %}
+<div class='row'>
+    <div class='col-sm-8 col-sm-offset-1'>
+        {% include 'snippets/course_search_form.html' with request=request %}
+        <h1>{{ object.title }}</h1>
+        <img src="{{ object.image.url }}" class="img-responsive">
+        <p>{{ object.category }}</p>
+        <p>{{ object.description|linebreaks }}</p>
+        <p>{{ object.updated }}</p>
+
+        {% if not object.is_owner %}
+            <a href="{{ object.get_purchase_url }}">Purchase</a>
+            <p>{{ object.display_price }}</p>
+        {% endif %}
+
+        <div>
+        <h1>Lectures</h1>
+        <div class="list-group">
+            {% for item in object.lecture_set.all %}
+            <a href="{{ item.get_absolute_url }}" class="list-group-item">{{ item.order }} - {{ item.title }}</a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

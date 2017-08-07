@@ -1,0 +1,26 @@
+{% extends 'defaults/base.html' %}
+{% load render_video %}
+<title>{% block title %}Lecture{% endblock %}</title>
+
+{% block content %}
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-3'>
+        <hr>
+        <div class="thumbnail">
+
+            <div class="caption">
+
+                <h3>{{ object.title }}</h3>
+
+                {% render_video object.video %}
+
+                <p>{{ object.description }}</p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

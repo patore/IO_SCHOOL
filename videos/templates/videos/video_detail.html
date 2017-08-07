@@ -1,0 +1,12 @@
+{% extends 'defaults/base.html' %}
+<title>{% block title %}Courses{% endblock %}</title>
+
+{% block content %}
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-3'>
+        {% include 'snippets/video_search_form.html' with request=request %}
+        <h1>{{ object.title }}</h1>
+        <p>{{ object.embed_code|safe }}</p>
+    </div>
+</div>
+{% endblock %}

@@ -21,7 +21,7 @@ class VideoDetailView(MemberRequiredMixin, DetailView):
 
 
 class VideoListView(ListView):
-    template_name = 'videos/video_list.html'
+    template_name = 'video_list.html'
 
     def get_queryset(self):
         request = self.request
